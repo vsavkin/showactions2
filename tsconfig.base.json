@@ -18,7 +18,11 @@
       "@sd/advantage/feature-search": [
         "libs/advantage/feature-search/src/index.ts"
       ],
-      "@sd/advantage/feature-main": ["libs/advantage/feature-main/src/index.ts"]
+      "@sd/advantage/feature-main": [
+        "libs/advantage/feature-main/src/index.ts"
+      ],
+      "@sd/select/feature-main": ["libs/select/feature-main/src/index.ts"],
+      "@sd/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
