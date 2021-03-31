@@ -170,6 +170,31 @@
           }
         }
       }
+    },
+    "advantage-feature-main": {
+      "projectType": "library",
+      "root": "libs/advantage/feature-main",
+      "sourceRoot": "libs/advantage/feature-main/src",
+      "prefix": "sd",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/advantage/feature-main/src/**/*.ts",
+              "libs/advantage/feature-main/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/advantage/feature-main"],
+          "options": {
+            "jestConfig": "libs/advantage/feature-main/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

@@ -17,7 +17,8 @@
     "paths": {
       "@sd/advantage/feature-search": [
         "libs/advantage/feature-search/src/index.ts"
-      ]
+      ],
+      "@sd/advantage/feature-main": ["libs/advantage/feature-main/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

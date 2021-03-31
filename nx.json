@@ -23,6 +23,7 @@
   "projects": {
     "advantage": { "tags": [] },
     "advantage-e2e": { "tags": [], "implicitDependencies": ["advantage"] },
-    "advantage-feature-search": { "tags": [] }
+    "advantage-feature-search": { "tags": [] },
+    "advantage-feature-main": { "tags": [] }
   }
 }
