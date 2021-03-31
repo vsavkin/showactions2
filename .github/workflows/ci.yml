@@ -9,6 +9,8 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - run: git fetch --prune --depth=50 origin main
       - run: npm install
       - name: 'Run unit tests'
