@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "advantage",
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  },
+  "projects": {
+    "advantage": {
+      "projectType": "application",
+      "root": "apps/advantage",
+      "sourceRoot": "apps/advantage/src",
+      "prefix": "sd",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/advantage",
+            "index": "apps/advantage/src/index.html",
+            "main": "apps/advantage/src/main.ts",
+            "polyfills": "apps/advantage/src/polyfills.ts",
+            "tsConfig": "apps/advantage/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/advantage/src/favicon.ico",
+              "apps/advantage/src/assets"
+            ],
+            "styles": ["apps/advantage/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/advantage/src/environments/environment.ts",
+                  "with": "apps/advantage/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "advantage:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "advantage:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "advantage:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/advantage/src/**/*.ts",
+              "apps/advantage/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/advantage"],
+          "options": {
+            "jestConfig": "apps/advantage/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "advantage-e2e": {
+      "root": "apps/advantage-e2e",
+      "sourceRoot": "apps/advantage-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/advantage-e2e/cypress.json",
+            "tsConfig": "apps/advantage-e2e/tsconfig.e2e.json",
+            "devServerTarget": "advantage:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "advantage:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/advantage-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  }
+}
