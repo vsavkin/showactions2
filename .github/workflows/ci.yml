@@ -1,0 +1,17 @@
+name: ci-verification
+
+on: push
+
+jobs:
+  verification:
+    runs-on: ubuntu-latest
+    name: Running verification steps in CI
+    steps:
+      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --depth=50 origin main
+      - run: npm install
+      - name: 'Run unit tests'
+        run: npx nx affected --target=test --base=origin/main
+      - name: 'Run lint checks'
+        run: npx nx affected --target=lint --base=origin/main

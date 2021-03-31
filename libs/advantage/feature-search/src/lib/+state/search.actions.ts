@@ -10,6 +10,8 @@ export const loadSearchSuccess = createAction(
   props<{ search: SearchEntity[] }>()
 );
 
+
+// some crazy changes
 export const loadSearchFailure = createAction(
   '[Search/API] Load Search Failure',
   props<{ error: any }>()
