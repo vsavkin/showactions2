@@ -8,7 +8,7 @@ import * as express from 'express';
 const app = express();
 
 app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to api!' });
+  res.send({ id: "123", message: "Jeff's suspicious care" });
 });
 
 const port = process.env.port || 3333;
