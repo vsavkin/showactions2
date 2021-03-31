@@ -145,6 +145,31 @@
           }
         }
       }
+    },
+    "advantage-feature-search": {
+      "projectType": "library",
+      "root": "libs/advantage/feature-search",
+      "sourceRoot": "libs/advantage/feature-search/src",
+      "prefix": "sd",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/advantage/feature-search/src/**/*.ts",
+              "libs/advantage/feature-search/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/advantage/feature-search"],
+          "options": {
+            "jestConfig": "libs/advantage/feature-search/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
