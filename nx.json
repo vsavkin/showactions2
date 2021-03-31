@@ -22,10 +22,14 @@
   },
   "projects": {
     "advantage": { "tags": ["scope:advantage"] },
-    "advantage-e2e": { "tags": ["scope:advantage"], "implicitDependencies": ["advantage"] },
+    "advantage-e2e": {
+      "tags": ["scope:advantage"],
+      "implicitDependencies": ["advantage"]
+    },
     "advantage-feature-search": { "tags": ["scope:advantage"] },
     "advantage-feature-main": { "tags": ["scope:advantage"] },
     "select-feature-main": { "tags": ["scope:select"] },
-    "shared-ui": { "tags": ["scope:shared"] }
+    "shared-ui": { "tags": ["scope:shared"] },
+    "api": { "tags": [] }
   }
 }

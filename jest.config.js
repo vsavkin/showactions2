@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/advantage/feature-main',
     '<rootDir>/libs/select/feature-main',
     '<rootDir>/libs/shared/ui',
+    '<rootDir>/apps/api',
   ],
 };
